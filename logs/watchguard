@@ -1,0 +1,2 @@
+[40m[32minfo[39m[22m[49m: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 2.2.6-servicing-10079 initialized 'WatchguardContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
