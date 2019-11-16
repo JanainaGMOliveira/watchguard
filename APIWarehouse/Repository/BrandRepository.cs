@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using APIWarehouse.Context;
 using APIWarehouse.Repository.Interface;
-using Infra.DTO;
-using Infra.Filtros;
-using ModelsAndExtensions.Models;
+using Infra.DTO.Ins;
+using Infra.DTO.Outs;
+using ModelsAndExtensions.Extensions;
 
 namespace APIWarehouse.Repository
 {
@@ -15,53 +16,48 @@ namespace APIWarehouse.Repository
         {
             _context = context;
         }
-        public void Add(BrandDTO brandIn)
+        public void Add(BrandIn brandIn)
         {
-            var brand = new Brand
-                            {
-                                Name = brandIn.Name,
-                                Description = brandIn.Description
-                            };
+            var brand = brandIn.ToModel();
             _context.Brand.Add(brand);
             _context.SaveChanges();
         }
-
-        public IEnumerable<BrandDTO> Get(BrandFilter filtro)
+        public IEnumerable<BrandOut> ListAll()
         {
-            var brands = _context.Brand.Select(x => x);//.Where(id);
-            return brands.Select(x => new BrandDTO
-                        {
-                            Id = x.Id,
-                            Name = x.Name,
-                            Description = x.Description
-                        });
-        }
+            var brands = _context.Brand;
 
-        public BrandDTO GetById(long id)
+            return brands.AsEnumerable().Select(x => x?.ToOut());
+        }
+        public BrandOut GetById(long id)
         {
-            var brand = _context.Brand.Find(id);
-            return new BrandDTO
-                        {
-                            Id = brand.Id,
-                            Name = brand.Name,
-                            Description = brand.Description
-                        };
-        }
+            var brand = _context.Brand
+                                .SingleOrDefault(x => x.Id == id);
 
-        public void Update(BrandDTO brandIn)
+            if(brand == null)
+                throw new ArgumentNullException("The brand doesn't exists.");
+
+            return brand?.ToOut();
+        }
+        public void Update(BrandIn brandIn)
         {
             var brand = _context.Brand.Find(brandIn.Id);
+
+            if(brand == null)
+                throw new ArgumentNullException("The brand doesn't exists.");
+
             brand.Name = brandIn.Name;
             brand.Description = brandIn.Description;
             
             _context.Brand.Update(brand);
             _context.SaveChanges();
         }
-
         public void Delete(long id)
         {
             var brand = _context.Brand.Find(id);
-            // deletar as associações com products
+
+            if(brand == null)
+                throw new ArgumentNullException("The brand doesn't exists.");
+
             _context.Brand.Remove(brand);
             _context.SaveChanges();
         }

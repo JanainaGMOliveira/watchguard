@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APIWarehouse.Context;
+using APIWarehouse.Domains;
+using APIWarehouse.Domains.Interface;
 using APIWarehouse.Repository;
 using APIWarehouse.Repository.Interface;
 using Microsoft.AspNetCore.Builder;
@@ -85,6 +87,9 @@ namespace APIWarehouse
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             
+            services.AddTransient<IBrandDomain, BrandDomain>();
+            services.AddTransient<IProductDomain, ProductDomain>();
+
             string sqlserver = Configuration.GetConnectionString("SqlServerWatchguard");
             _logger.LogInformation("SQL Server Connection String: {SqlServerWatchguard}", sqlserver);
             services.AddDbContext<WarehouseContext>(options => options.UseSqlServer(sqlserver), ServiceLifetime.Transient);

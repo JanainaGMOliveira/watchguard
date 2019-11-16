@@ -4456,6 +4456,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
+          "Infra": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.6"
         },
         "compile": {

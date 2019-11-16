@@ -175,7 +175,11 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

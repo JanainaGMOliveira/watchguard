@@ -1,6 +1,6 @@
-namespace Infra.DTO
+namespace Infra.DTO.Ins
 {
-    public class BrandDTO
+    public class BrandIn
     {
         public long Id { get; set; }
         public string Name { get; set; }

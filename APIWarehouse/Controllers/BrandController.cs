@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using APIWarehouse.Repository.Interface;
-using Infra.DTO;
-using Infra.Filtros;
+using APIWarehouse.Domains.Interface;
+using Infra.DTO.Ins;
+using Infra.DTO.Outs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,29 +12,29 @@ namespace APIWarehouse.Controllers
     [ApiController]
     public class BrandController : ControllerBase
     {
-        private readonly IBrandRepository _repo;
+        private readonly IBrandDomain _domain;
 
-        public BrandController(IBrandRepository repo)
+        public BrandController(IBrandDomain domain)
         {
-            _repo = repo;
+            _domain = domain;
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<BrandDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<BrandOut>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Get([FromQuery] BrandFilter filtro)
+        public IActionResult ListAll()
         {
-            var lista = _repo.Get(filtro);
+            var lista = _domain.ListAll();
 
             return Ok(lista);
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(BrandDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(BrandOut), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult GetById([FromRoute] long id)
         {
-            var resp = _repo.GetById(id);
+            var resp = _domain.GetById(id);
 
             if (resp != null)
                 return Ok(resp);
@@ -48,11 +46,11 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PostAtribuicaoBeneficio([FromBody] BrandDTO brandDTO)
+        public IActionResult PostAtribuicaoBeneficio([FromBody] BrandIn brandIn)
         {
             try
             {
-                _repo.Add(brandDTO);
+                _domain.Add(brandIn);
                 return Ok();
             }
             catch (Exception e)
@@ -66,11 +64,11 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PutAtribuicaoBeneficio([FromBody] BrandDTO brandDTO)
+        public IActionResult PutAtribuicaoBeneficio([FromBody] BrandIn brandIn)
         {
             try
             {
-                _repo.Update(brandDTO);
+                _domain.Update(brandIn);
                 return Ok();
             }
             catch (Exception e)
@@ -88,7 +86,7 @@ namespace APIWarehouse.Controllers
         {
             try
             {
-                _repo.Delete(id);
+                _domain.Delete(id);
                 return Ok();
             }
             catch (Exception e)

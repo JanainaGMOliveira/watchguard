@@ -8,6 +8,9 @@ namespace APIWarehouse.Context.Configuration
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
+            builder.HasOne<Brand>(o => o.Brand)
+                   .WithMany()
+                   .OnDelete(DeleteBehavior.Restrict);
             builder.HasData(
                 new Product
                 {

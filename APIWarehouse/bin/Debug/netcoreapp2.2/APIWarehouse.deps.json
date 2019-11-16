@@ -270,6 +270,7 @@
       },
       "ModelsAndExtensions/1.0.0": {
         "dependencies": {
+          "Infra": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.6"
         },
         "runtime": {

@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Infra.Filtros
+namespace Infra.DTO.Ins
 {
-    public class ProductFilter
+    public class ProductIn
     {
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Unit { get; set; }
         public int Quantity { get; set; }

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 
-namespace APIWarehouse.Repository.Interface
+namespace APIWarehouse.Domains.Interface
 {
-    public interface IBrandRepository
+    public interface IBrandDomain
     {
         BrandOut GetById(long id);
         void Add(BrandIn brandIn);
