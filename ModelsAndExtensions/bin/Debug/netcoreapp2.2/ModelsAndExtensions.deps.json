@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.2": {
       "ModelsAndExtensions/1.0.0": {
         "dependencies": {
+          "Infra": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.2.6",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.6"
         },
@@ -86,7 +87,15 @@
           }
         }
       },
-      "System.Linq.Queryable/4.0.1": {}
+      "System.Linq.Queryable/4.0.1": {},
+      "Infra/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.6"
+        },
+        "runtime": {
+          "Infra.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -164,6 +173,11 @@
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "Infra/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

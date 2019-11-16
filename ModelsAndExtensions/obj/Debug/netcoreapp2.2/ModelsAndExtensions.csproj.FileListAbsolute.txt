@@ -31,3 +31,6 @@
 /home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/Debug/netcoreapp2.2/ModelsAndExtensions.AssemblyInfo.cs
 /home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/Debug/netcoreapp2.2/ModelsAndExtensions.dll
 /home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/Debug/netcoreapp2.2/ModelsAndExtensions.pdb
+/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/bin/Debug/netcoreapp2.2/Infra.dll
+/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/bin/Debug/netcoreapp2.2/Infra.pdb
+/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/Debug/netcoreapp2.2/ModelsAndExtensions.csproj.CopyComplete
