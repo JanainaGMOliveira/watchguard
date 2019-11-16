@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/janaina/Documents/Watchguard/APIWarehouse/APIWarehouse.csproj": {}
+    "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj": {}
   },
   "projects": {
-    "/home/janaina/Documents/Watchguard/APIWarehouse/APIWarehouse.csproj": {
+    "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/janaina/Documents/Watchguard/APIWarehouse/APIWarehouse.csproj",
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj",
         "projectName": "APIWarehouse",
-        "projectPath": "/home/janaina/Documents/Watchguard/APIWarehouse/APIWarehouse.csproj",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj",
         "packagesPath": "/home/janaina/.nuget/packages/",
-        "outputPath": "/home/janaina/Documents/Watchguard/APIWarehouse/obj/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -28,11 +28,11 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "/home/janaina/Documents/Watchguard/Infra/Infra.csproj": {
-                "projectPath": "/home/janaina/Documents/Watchguard/Infra/Infra.csproj"
+              "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj"
               },
-              "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
-                "projectPath": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj"
+              "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj"
               }
             }
           }
@@ -86,14 +86,14 @@
         }
       }
     },
-    "/home/janaina/Documents/Watchguard/Infra/Infra.csproj": {
+    "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/janaina/Documents/Watchguard/Infra/Infra.csproj",
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
         "projectName": "Infra",
-        "projectPath": "/home/janaina/Documents/Watchguard/Infra/Infra.csproj",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
         "packagesPath": "/home/janaina/.nuget/packages/",
-        "outputPath": "/home/janaina/Documents/Watchguard/Infra/obj/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
@@ -152,14 +152,14 @@
         }
       }
     },
-    "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
+    "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
         "projectName": "ModelsAndExtensions",
-        "projectPath": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
         "packagesPath": "/home/janaina/.nuget/packages/",
-        "outputPath": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/obj/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"

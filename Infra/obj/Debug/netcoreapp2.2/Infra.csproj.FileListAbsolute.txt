@@ -20,3 +20,14 @@
 /home/janaina/Documents/Watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.AssemblyInfo.cs
 /home/janaina/Documents/Watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.dll
 /home/janaina/Documents/Watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.pdb
+/home/janaina/Documents/Watchguard/watchguard/Infra/bin/Debug/netcoreapp2.2/Infra.deps.json
+/home/janaina/Documents/Watchguard/watchguard/Infra/bin/Debug/netcoreapp2.2/Infra.runtimeconfig.json
+/home/janaina/Documents/Watchguard/watchguard/Infra/bin/Debug/netcoreapp2.2/Infra.runtimeconfig.dev.json
+/home/janaina/Documents/Watchguard/watchguard/Infra/bin/Debug/netcoreapp2.2/Infra.dll
+/home/janaina/Documents/Watchguard/watchguard/Infra/bin/Debug/netcoreapp2.2/Infra.pdb
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.csprojAssemblyReference.cache
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.csproj.CoreCompileInputs.cache
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.AssemblyInfoInputs.cache
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.AssemblyInfo.cs
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.dll
+/home/janaina/Documents/Watchguard/watchguard/Infra/obj/Debug/netcoreapp2.2/Infra.pdb

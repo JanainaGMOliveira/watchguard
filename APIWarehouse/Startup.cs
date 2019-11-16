@@ -14,30 +14,80 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace APIWarehouse
 {
+    public class StartupMigration
+    {
+        public IConfiguration Configuration { get; }
+        public IHostingEnvironment HostingEnvironment { get; }
+        private readonly ILogger _logger;
+        
+        public StartupMigration(IConfiguration configuration, ILogger<Startup> logger, IHostingEnvironment env)
+        {
+            Configuration = configuration;
+            HostingEnvironment = env;
+            _logger = logger;
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            _logger.LogInformation("New ApiCadastro Instance para migrations. Env: {EnvironmentName}", HostingEnvironment.EnvironmentName);
+
+            string sqlserver = Configuration.GetConnectionString("SqlServerWatchguard");
+            _logger.LogInformation("SQL Server Connection String: {SqlServerWatchguard}", sqlserver);
+            services.AddDbContext<WarehouseContext>(options => options.UseSqlServer(sqlserver), ServiceLifetime.Transient);
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            
+        }
+         
+    }
     public class Startup
     {
         public IConfiguration Configuration { get; }
         public IHostingEnvironment HostingEnvironment { get; }
-        
-        public Startup(IConfiguration configuration, IHostingEnvironment hostingEnvironment)
+        private readonly ILogger _logger;
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+        public Startup(IConfiguration configuration, ILogger<Startup> logger, IHostingEnvironment env)
         {
             Configuration = configuration;
-            HostingEnvironment = hostingEnvironment;
+            HostingEnvironment = env;
+            _logger = logger;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IBrandRepository, BrandRepository>();        
+            _logger.LogInformation("New APIWrehouse Instance. Env: {EnvironmentName}", HostingEnvironment.EnvironmentName);
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                });
+            });
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            });
+
+            services.AddTransient<IBrandRepository, BrandRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            
             string sqlserver = Configuration.GetConnectionString("SqlServerWatchguard");
-            services.AddDbContext<WarehouseContext>(options => options.UseSqlServer(sqlserver));
+            _logger.LogInformation("SQL Server Connection String: {SqlServerWatchguard}", sqlserver);
+            services.AddDbContext<WarehouseContext>(options => options.UseSqlServer(sqlserver), ServiceLifetime.Transient);
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -45,44 +95,11 @@ namespace APIWarehouse
             context.Database.Migrate();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            app.UseCors(MyAllowSpecificOrigins);
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
-
-    // public class StartupMigration
-    // {
-    //     public IConfiguration Configuration { get; }
-    //     public IHostingEnvironment HostingEnvironment { get; }
-        
-    //     public StartupMigration(IConfiguration configuration, IHostingEnvironment env)
-    //     {
-    //         Configuration = configuration;
-    //         HostingEnvironment = env;
-    //     }
-
-    //     public void ConfigureServices(IServiceCollection services)
-    //     {
-    //         string sqlserver = Configuration.GetConnectionString("SqlServerBilhetagem");
-    //         services.AddDbContext<WatchguardContext>(options => options.UseSqlServer(sqlserver), ServiceLifetime.Transient);
-    //     }
-
-    //     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    //     {
-    //     }
-         
-    // }
 }

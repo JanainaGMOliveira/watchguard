@@ -12080,11 +12080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/janaina/Documents/Watchguard/Infra/Infra.csproj",
+      "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
       "projectName": "Infra",
-      "projectPath": "/home/janaina/Documents/Watchguard/Infra/Infra.csproj",
+      "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
       "packagesPath": "/home/janaina/.nuget/packages/",
-      "outputPath": "/home/janaina/Documents/Watchguard/Infra/obj/",
+      "outputPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

@@ -15,6 +15,6 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
 COPY --from=build-env /app/APIWarehouse/out .
 
-EXPOSE 5000
+EXPOSE 5010
 
 ENTRYPOINT ["dotnet", "APIWarehouse.dll"]

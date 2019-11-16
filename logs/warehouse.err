@@ -25,10 +25,10 @@ Unhandled Exception: System.Data.SqlClient.SqlException: A connection was succes
    at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.Exists()
    at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
    at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
-   at ApiProduto.Startup.ConfigureServices(IServiceCollection services) in /home/janaina/Documents/Watchguard/WatchguardAPI/ApiProduto/Startup.cs:line 45
+   at APIWarehouse.Startup.ConfigureServices(IServiceCollection services) in /home/janaina/Documents/Watchguard/watchguard/APIWarehouse/Startup.cs:line 45
 --- End of stack trace from previous location where exception was thrown ---
    at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.ConfigureServices(IServiceCollection services)
    at Microsoft.AspNetCore.Hosting.Internal.WebHost.EnsureApplicationServices()
    at Microsoft.AspNetCore.Hosting.Internal.WebHost.Initialize()
    at Microsoft.AspNetCore.Hosting.WebHostBuilder.Build()
-   at ApiProduto.Program.Main(String[] args) in /home/janaina/Documents/Watchguard/WatchguardAPI/ApiProduto/Program.cs:line 17
+   at APIWarehouse.Program.Main(String[] args) in /home/janaina/Documents/Watchguard/watchguard/APIWarehouse/Program.cs:line 17

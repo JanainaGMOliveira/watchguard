@@ -28,6 +28,7 @@ namespace APIWarehouse.Repository
                                 BrandId  = productIn.Brand.Id
                             };
             _context.Product.Add(product);
+            _context.SaveChanges();
         }
 
         public IEnumerable<ProductDTO> Get(ProductFilter filtro)
@@ -85,12 +86,14 @@ namespace APIWarehouse.Repository
             product.BrandId  = productIn.Brand.Id;
             
             _context.Product.Update(product);
+            _context.SaveChanges();
         }
 
         public void Delete(long id)
         {
             var product = _context.Product.Find(id);
             _context.Product.Remove(product);
+            _context.SaveChanges();
         }
     }
 }

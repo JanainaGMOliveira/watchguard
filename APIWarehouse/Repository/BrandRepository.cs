@@ -23,6 +23,7 @@ namespace APIWarehouse.Repository
                                 Description = brandIn.Description
                             };
             _context.Brand.Add(brand);
+            _context.SaveChanges();
         }
 
         public IEnumerable<BrandDTO> Get(BrandFilter filtro)
@@ -54,6 +55,7 @@ namespace APIWarehouse.Repository
             brand.Description = brandIn.Description;
             
             _context.Brand.Update(brand);
+            _context.SaveChanges();
         }
 
         public void Delete(long id)
@@ -61,6 +63,7 @@ namespace APIWarehouse.Repository
             var brand = _context.Brand.Find(id);
             // deletar as associações com products
             _context.Brand.Remove(brand);
+            _context.SaveChanges();
         }
     }
 }

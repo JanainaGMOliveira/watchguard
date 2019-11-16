@@ -12080,11 +12080,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+      "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
       "projectName": "ModelsAndExtensions",
-      "projectPath": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+      "projectPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
       "packagesPath": "/home/janaina/.nuget/packages/",
-      "outputPath": "/home/janaina/Documents/Watchguard/ModelsAndExtensions/obj/",
+      "outputPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
