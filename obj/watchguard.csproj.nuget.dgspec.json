@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/janaina/Documents/Watchguard/watchguard/watchguard.csproj": {}
+  },
+  "projects": {
+    "/home/janaina/Documents/Watchguard/watchguard/watchguard.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/watchguard.csproj",
+        "projectName": "watchguard",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/watchguard.csproj",
+        "packagesPath": "/home/janaina/.nuget/packages/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/janaina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

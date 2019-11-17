@@ -1,0 +1,4 @@
+/home/janaina/Documents/Watchguard/watchguard/obj/Debug/netcoreapp2.2/watchguard.csprojAssemblyReference.cache
+/home/janaina/Documents/Watchguard/watchguard/obj/Debug/netcoreapp2.2/watchguard.csproj.CoreCompileInputs.cache
+/home/janaina/Documents/Watchguard/watchguard/obj/Debug/netcoreapp2.2/watchguard.AssemblyInfoInputs.cache
+/home/janaina/Documents/Watchguard/watchguard/obj/Debug/netcoreapp2.2/watchguard.AssemblyInfo.cs

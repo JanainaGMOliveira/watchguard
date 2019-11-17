@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/janaina/Documents/Watchguard/watchguard/TestService.Tests/TestService.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj",
+        "projectName": "APIWarehouse",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj",
+        "packagesPath": "/home/janaina/.nuget/packages/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/janaina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj"
+              },
+              "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
+        "projectName": "Infra",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj",
+        "packagesPath": "/home/janaina/.nuget/packages/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/janaina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+        "projectName": "ModelsAndExtensions",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/ModelsAndExtensions.csproj",
+        "packagesPath": "/home/janaina/.nuget/packages/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/ModelsAndExtensions/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/janaina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/Infra/Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "/home/janaina/Documents/Watchguard/watchguard/TestService.Tests/TestService.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/janaina/Documents/Watchguard/watchguard/TestService.Tests/TestService.Tests.csproj",
+        "projectName": "TestService.Tests",
+        "projectPath": "/home/janaina/Documents/Watchguard/watchguard/TestService.Tests/TestService.Tests.csproj",
+        "packagesPath": "/home/janaina/.nuget/packages/",
+        "outputPath": "/home/janaina/Documents/Watchguard/watchguard/TestService.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/janaina/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj": {
+                "projectPath": "/home/janaina/Documents/Watchguard/watchguard/APIWarehouse/APIWarehouse.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

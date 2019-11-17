@@ -105,5 +105,15 @@ namespace APIWarehouse.Controllers
 
             return Ok("The path of saved file is " + doc);
         }
+
+        [HttpGet("ProductsByBrand")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult FileWithProductsByBrand()
+        {
+            var doc = _domain.FileWithProductsByBrand();
+
+            return Ok("The path of saved file is " + doc);
+        }
     }
 }

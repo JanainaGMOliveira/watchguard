@@ -13,5 +13,6 @@ namespace APIWarehouse.Domains.Interface
         void Delete(long id);
         IEnumerable<ProductOut> ListAll(bool? filtroAtivo);
         string FileWithActiveProducts();
+        string FileWithProductsByBrand();
     }
 }
