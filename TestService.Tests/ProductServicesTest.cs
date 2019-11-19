@@ -22,6 +22,44 @@ namespace TestService.Tests
             return new WarehouseContext(options);
         }
 
+        [TestMethod]
+        public void TestListAllProductSuccess()
+        {
+            var context = InitializeTests();
+            var brandRep = new BrandRepository(context);
+            var productRep = new ProductRepository(context, brandRep);
+
+            var brandTest = new BrandIn()
+            {
+                Name = "Brand Test",
+                Description = "Description Brand Test"
+            };
+            brandRep.Add(brandTest);
+            var productTest0 = new ProductIn()
+            {
+                Name = "Product Test",
+                Unit = "Unit Test",
+                Price = 1.0,
+                Quantity = 1,
+                Active = true,
+                BrandId = 1
+            };
+            productRep.Add(productTest0);
+            var productTest1 = new ProductIn()
+            {
+                Name = "Product Test 2",
+                Unit = "Unit Test 2",
+                Price = 1.0,
+                Quantity = 1,
+                Active = false,
+                BrandId = 1
+            };
+            productRep.Add(productTest1);
+
+            var products = productRep.ListAll();
+
+            Assert.AreEqual(products.Count(), 2);
+        }
 
         [TestMethod]
         public void TestAddProductSuccess()
@@ -43,14 +81,12 @@ namespace TestService.Tests
                 Unit = "Unit Test",
                 Price = 1.0,
                 Quantity = 1,
-                Active = true,
+                Active = false,
                 BrandId = 1
             };
 
             productRep.Add(productTest);
 
-            // só inseriu um product
-            Assert.AreEqual(1, context.Product.Count());
             // os dados inseridos estão corretos
             var productInserida = context.Product.LastOrDefault();
             Assert.AreEqual(productInserida.Name, productTest.Name);
@@ -89,13 +125,7 @@ namespace TestService.Tests
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
 
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest = new ProductIn()
+            var productOriginal = new ProductIn 
             {
                 Name = "Product Test",
                 Unit = "Unit Test",
@@ -104,17 +134,27 @@ namespace TestService.Tests
                 Active = true,
                 BrandId = 1
             };
-            productRep.Add(productTest);
+            var productTest = new ProductIn()
+            {
+                Id = 1,
+                Name = "Product Update",
+                Unit = "Unit Update",
+                Price = 1.0,
+                Quantity = 1,
+                Active = true,
+                BrandId = 1
+            };
+            productRep.Update(productTest);
 
             // os dados editados estão corretos
-            var productEditada = context.Product.LastOrDefault();
-            Assert.AreNotEqual(productEditada.Name, productTest.Name);
-            Assert.AreNotEqual(productEditada.Unit, productTest.Unit);
+            var productEditada = context.Product.Find((long)1);
+            Assert.AreNotEqual(productEditada.Name, productOriginal.Name);
+            Assert.AreNotEqual(productEditada.Unit, productOriginal.Unit);
             // não editou a o preço
-            Assert.AreEqual(productEditada.Price, productTest.Price);
-            Assert.AreEqual(productEditada.Quantity, productTest.Quantity);
-            Assert.AreEqual(productEditada.Active, productTest.Active);
-            Assert.AreEqual(productEditada.BrandId, productTest.BrandId);
+            Assert.AreEqual(productEditada.Price, productOriginal.Price);
+            Assert.AreEqual(productEditada.Quantity, productOriginal.Quantity);
+            Assert.AreEqual(productEditada.Active, productOriginal.Active);
+            Assert.AreEqual(productEditada.BrandId, productOriginal.BrandId);
         }
 
         [TestMethod]
@@ -124,29 +164,10 @@ namespace TestService.Tests
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
 
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-
-            productRep.Add(productTest0);
-
             // Tentando editar uma product que não existe
             var productTest1 = new ProductIn()
             {
-                Id = 2,
+                Id = 0,
                 Name = "Product Update",
                 Unit = "Unit Test",
                 Price = 1.0,
@@ -167,103 +188,9 @@ namespace TestService.Tests
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
 
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-
-            productRep.Add(productTest0);
-
             Assert.ThrowsException<ArgumentNullException>(() => productRep.Delete(0));
         }
 
-        [TestMethod]
-        public void TestListAllProductSuccess()
-        {
-            var context = InitializeTests();
-            var brandRep = new BrandRepository(context);
-            var productRep = new ProductRepository(context, brandRep);
-
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest0);
-            var productTest1 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest1);
-
-            var products = productRep.ListAll();
-
-            Assert.AreEqual(products.Count(), 2);
-        }
-        [TestMethod]
-        public void TestListAllActiveProductSuccess()
-        {
-            var context = InitializeTests();
-            var brandRep = new BrandRepository(context);
-            var productRep = new ProductRepository(context, brandRep);
-
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest0);
-            var productTest1 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = false,
-                BrandId = 1
-            };
-            productRep.Add(productTest1);
-
-            var products = productRep.ListAll();
-
-            Assert.AreEqual(products.Count(), 1);
-        }
         [TestMethod]
         public void TestGetByIdProductSuccess()
         {
@@ -271,32 +198,15 @@ namespace TestService.Tests
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
 
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
             var productTest0 = new ProductIn()
             {
-                Name = "Product Test",
-                Unit = "Unit Test",
+                Name = "Product Update",
+                Unit = "Unit Update",
                 Price = 1.0,
                 Quantity = 1,
                 Active = true,
                 BrandId = 1
             };
-            productRep.Add(productTest0);
-            var productTest1 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest1);
 
             var product = productRep.GetById(1);
 
@@ -314,18 +224,6 @@ namespace TestService.Tests
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
 
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-
-            productRep.Add(productTest0);
-
             Assert.ThrowsException<ArgumentNullException>(() => productRep.GetById(0));
         }
         [TestMethod]
@@ -334,73 +232,9 @@ namespace TestService.Tests
             var context = InitializeTests();
             var brandRep = new BrandRepository(context);
             var productRep = new ProductRepository(context, brandRep);
-
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest0);
-            var productTest1 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = false,
-                BrandId = 1
-            };
-            productRep.Add(productTest1);
-
+            
             var sum = productRep.SumOfActiveProducts();
             Assert.AreEqual(sum, 1);
-        }
-        [TestMethod]
-        public void TestSumActiveProductsFail()
-        {
-            var context = InitializeTests();
-            var brandRep = new BrandRepository(context);
-            var productRep = new ProductRepository(context, brandRep);
-
-            var brandTest = new BrandIn()
-            {
-                Name = "Brand Test",
-                Description = "Description Brand Test"
-            };
-            brandRep.Add(brandTest);
-            var productTest0 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest0);
-            var productTest1 = new ProductIn()
-            {
-                Name = "Product Test",
-                Unit = "Unit Test",
-                Price = 1.0,
-                Quantity = 1,
-                Active = true,
-                BrandId = 1
-            };
-            productRep.Add(productTest1);
-
-            var sum = productRep.SumOfActiveProducts();
-            Assert.AreNotEqual(sum, 1);
         }
     }
 }
