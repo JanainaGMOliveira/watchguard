@@ -1,37 +1,40 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using APIWarehouse.Context;
-using APIWarehouse.Repository.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 using Microsoft.EntityFrameworkCore;
 using ModelsAndExtensions.Extensions;
+using APIWarehouse.Context;
+using APIWarehouse.Repository.Interface;
 
 namespace APIWarehouse.Repository
 {
     public class ProductRepository : IProductRepository
     {
         private readonly WarehouseContext _context;
-        
-        public ProductRepository(WarehouseContext context)
+        private readonly IBrandRepository _brandRep;
+        public ProductRepository(WarehouseContext context, IBrandRepository brandRep)
         {
             _context = context;
+            _brandRep = brandRep;
         }
 
         public void Add(ProductIn productIn)
         {
+            var brand = _brandRep.GetById(productIn.BrandId);
+            if (brand == null)
+                throw new ArgumentNullException("The brand doesn't exists.");
+
             var product = productIn.ToModel();
             _context.Product.Add(product);
             _context.SaveChanges();
         }
-        public IEnumerable<ProductOut> ListAll(bool? filtroAtivo)
+        public IEnumerable<ProductOut> ListAll()
         {
             var products = _context.Product
                                    .Include(x => x.Brand)
                                    .AsQueryable();
-            if(filtroAtivo.HasValue)
-                products = products.Where(x => x.Active == filtroAtivo.Value).AsQueryable();
 
             return products.AsEnumerable().Select(x => x?.ToOut());
         }
@@ -41,7 +44,7 @@ namespace APIWarehouse.Repository
                                   .Include(x => x.Brand)
                                   .SingleOrDefault(x => x.Id == id);
 
-            if(product == null)
+            if (product == null)
                 throw new ArgumentNullException("The product doesn't exists.");
 
             return product?.ToOut();
@@ -50,7 +53,7 @@ namespace APIWarehouse.Repository
         {
             var product = _context.Product.Find(productIn.Id);
 
-            if(product == null)
+            if (product == null)
                 throw new ArgumentNullException("The product doesn't exists.");
 
             product.Name = productIn.Name;
@@ -58,8 +61,12 @@ namespace APIWarehouse.Repository
             product.Quantity = productIn.Quantity;
             product.Price = productIn.Price;
             product.Active = productIn.Active;
-            product.BrandId  = productIn.BrandId;
-            
+            var brand = _brandRep.GetById(productIn.BrandId);
+            if (brand == null)
+                throw new ArgumentNullException("The brand doesn't exists.");
+
+            product.BrandId = productIn.BrandId;
+
             _context.Product.Update(product);
             _context.SaveChanges();
         }
@@ -67,11 +74,28 @@ namespace APIWarehouse.Repository
         {
             var product = _context.Product.Find(id);
 
-            if(product == null)
+            if (product == null)
                 throw new ArgumentNullException("The product doesn't exists.");
 
             _context.Product.Remove(product);
             _context.SaveChanges();
+        }
+        public long SumOfActiveProducts()
+        {
+            return _context.Product
+                           .Include(x => x.Brand)
+                           .Where(x => x.Active == true)
+                           .Sum(x => x.Quantity);
+        }
+
+        public IEnumerable<IGrouping<string, ProductOut>> ProductsByBrand()
+        {
+            return _context.Product
+                           .Include(x => x.Brand)
+                           .Select(x => x.ToOut())
+                           .GroupBy(x => x.BrandName)
+                           .AsEnumerable();
+                           
         }
     }
 }

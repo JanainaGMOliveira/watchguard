@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using APIWarehouse.Context;
-using APIWarehouse.Repository.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 using ModelsAndExtensions.Extensions;
+using APIWarehouse.Context;
+using APIWarehouse.Repository.Interface;
 
 namespace APIWarehouse.Repository
 {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using APIWarehouse.Domains.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using APIWarehouse.Domains.Interface;
 
 namespace APIWarehouse.Controllers
 {
@@ -22,9 +22,9 @@ namespace APIWarehouse.Controllers
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ProductOut>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ListAll([FromQuery] bool? filtroAtivo)
+        public IActionResult ListAll()
         {
-            var lista = _domain.ListAll(filtroAtivo);
+            var lista = _domain.ListAll();
 
             return Ok(lista);
         }
@@ -46,7 +46,7 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PostAtribuicaoBeneficio([FromBody] ProductIn productIn)
+        public IActionResult Post([FromBody] ProductIn productIn)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PutAtribuicaoBeneficio([FromBody] ProductIn productIn)
+        public IActionResult Put([FromBody] ProductIn productIn)
         {
             try
             {

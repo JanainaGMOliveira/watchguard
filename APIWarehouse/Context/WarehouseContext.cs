@@ -1,6 +1,6 @@
-using APIWarehouse.Context.Configuration;
 using Microsoft.EntityFrameworkCore;
 using ModelsAndExtensions.Models;
+using APIWarehouse.Context.Configuration;
 
 namespace APIWarehouse.Context
 {

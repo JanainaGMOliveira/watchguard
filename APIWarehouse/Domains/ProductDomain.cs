@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml;
-using APIWarehouse.Domains.Interface;
-using APIWarehouse.Repository.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
+using APIWarehouse.Domains.Interface;
+using APIWarehouse.Repository.Interface;
+using System.Diagnostics;
 
 namespace APIWarehouse.Domains
 {
@@ -23,9 +24,9 @@ namespace APIWarehouse.Domains
         {
             _repo.Add(productIn);
         }
-        public IEnumerable<ProductOut> ListAll(bool? filtroAtivo)
+        public IEnumerable<ProductOut> ListAll()
         {
-            return _repo.ListAll(filtroAtivo);
+            return _repo.ListAll();
         }
         public ProductOut GetById(long id)
         {
@@ -41,10 +42,9 @@ namespace APIWarehouse.Domains
         }
         public string FileWithActiveProducts()
         {
-            var products = _repo.ListAll(true);
-            var sum = products.Sum(x => x.Quantity);
+            var sum = _repo.SumOfActiveProducts();
             // SAVE IN TXT FILE
-            var docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var docPath = @"/app/Arquivos"; // Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             using (var outputFile = new StreamWriter(Path.Combine(docPath, "SumProducts.txt")))
                 outputFile.WriteLine("The sum of active products  is " + sum + ".");
 
@@ -53,7 +53,7 @@ namespace APIWarehouse.Domains
 
         public string FileWithProductsByBrand()
         {
-            var products = _repo.ListAll(true).GroupBy(x => x.BrandName).Select(x => new { Brand = x.Key, Quantity = x.Count() });
+            var products = _repo.ProductsByBrand().Select(x => new { Brand = x.Key, Quantity = x.Count() });
             var doc = new XmlDocument();
             var docNode = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
             doc.AppendChild(docNode);
@@ -73,7 +73,7 @@ namespace APIWarehouse.Domains
                 priceNode.AppendChild(doc.CreateTextNode(item.Quantity.ToString()));
                 brandNode.AppendChild(priceNode);
             }
-            var docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var docPath = @"/app/Arquivos";
             using (var outputFile = new StreamWriter(Path.Combine(docPath, "ProductsByBrand.xml")))
                 doc.Save(outputFile);
 

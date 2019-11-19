@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using APIWarehouse.Domains.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using APIWarehouse.Domains.Interface;
 
 namespace APIWarehouse.Controllers
 {

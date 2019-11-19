@@ -11,7 +11,7 @@ namespace APIWarehouse.Domains.Interface
         void Add(ProductIn productIn);
         void Update(ProductIn productIn);
         void Delete(long id);
-        IEnumerable<ProductOut> ListAll(bool? filtroAtivo);
+        IEnumerable<ProductOut> ListAll();
         string FileWithActiveProducts();
         string FileWithProductsByBrand();
     }

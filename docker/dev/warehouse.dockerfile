@@ -15,6 +15,8 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
 COPY --from=build-env /app/APIWarehouse/out .
 
+RUN mkdir /app/Arquivos && chmod 777 -R /app/Arquivos/
+
 EXPOSE 5010
 
 ENTRYPOINT ["dotnet", "APIWarehouse.dll"]

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
 
@@ -10,6 +11,8 @@ namespace APIWarehouse.Repository.Interface
         void Add(ProductIn productIn);
         void Update(ProductIn productIn);
         void Delete(long id);
-        IEnumerable<ProductOut> ListAll(bool? filtroAtivo);
+        IEnumerable<ProductOut> ListAll();
+        long SumOfActiveProducts();
+        IEnumerable<IGrouping<string, ProductOut>> ProductsByBrand();
     }
 }

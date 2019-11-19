@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using APIWarehouse.Domains.Interface;
-using APIWarehouse.Repository.Interface;
 using Infra.DTO.Ins;
 using Infra.DTO.Outs;
+using APIWarehouse.Repository.Interface;
+using APIWarehouse.Domains.Interface;
 
 namespace APIWarehouse.Domains
 {
