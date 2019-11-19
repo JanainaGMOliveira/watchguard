@@ -175,6 +175,8 @@ revert-migration:
 remove-migration:
 	cd APIWarehouse/ && export ASPNETCORE_ENVIRONMENT=Migration && dotnet ef migrations remove -f
 
+run-migration:
+	cd APIWarehouse/ && dotnet ef database update
 
 #LOCAL
 run-local: run-sqlserver run-local-warehouse

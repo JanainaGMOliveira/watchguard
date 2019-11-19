@@ -46,7 +46,7 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PostAtribuicaoBeneficio([FromBody] BrandIn brandIn)
+        public IActionResult Post([FromBody] BrandIn brandIn)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace APIWarehouse.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult PutAtribuicaoBeneficio([FromBody] BrandIn brandIn)
+        public IActionResult Put([FromBody] BrandIn brandIn)
         {
             try
             {
