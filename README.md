@@ -6,6 +6,7 @@
 make build 
 make run-sqlserver
 make run-warehouse
+make run-migration
 ```
 ### Urls
 The API listens on http://localhost:5010
